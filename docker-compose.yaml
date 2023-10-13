@@ -1,0 +1,29 @@
+services:
+  nonprod:
+    image: "grafana/grafana:9.2.3"
+    ports:
+      - "3001:3000"
+    networks:
+      - grafana
+    volumes:
+      - ./autoprovision:/etc/grafana/provisioning
+
+  prod:
+    image: "grafana/grafana:9.0.4"
+    ports:
+      - "3002:3000"
+    networks:
+      - grafana
+    volumes:
+      - ./autoprovision:/etc/grafana/provisioning
+
+  client:
+    build: ./clientimage
+    networks:
+      - grafana
+    volumes:
+      - ./clientscripts:/scripts:ro
+    working_dir: /scripts
+
+networks:
+  grafana:

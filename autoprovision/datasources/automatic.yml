@@ -1,0 +1,16 @@
+apiversion: 1
+
+datasources:
+  -  orgId: 1
+     name: TestData DB
+     type: testdata
+     typeName: TestData DB
+     typeLogoUrl: public/app/plugins/datasource/testdata/img/testdata.svg
+     access: proxy
+     url: ''
+     user: ''
+     database: ''
+     basicAuth: false
+     isDefault: true
+     jsonData: {}
+     readOnly: false
